@@ -10,27 +10,6 @@ export default class extends React.Component {
       return (
         <Page title="Fragebogen" menu large padding >
           <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
-          <p>Lorem ipsum sit dolor amet</p>
         </Page>
       );
     }

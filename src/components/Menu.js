@@ -36,7 +36,7 @@ const Menu = () => {
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>Covid Tracking Schweiz</IonListHeader>
-          <IonNote>lorem ipsum</IonNote>
+          <IonNote> - </IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
