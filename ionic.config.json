@@ -1,0 +1,7 @@
+{
+  "name": "ct-app-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
