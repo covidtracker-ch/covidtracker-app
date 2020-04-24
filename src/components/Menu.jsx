@@ -17,7 +17,7 @@ import './Menu.css';
 
 const appPages = [
   {
-    title: 'Fragebogen',
+    title: 'covidtracker.ch',
     url: '/',
     iosIcon: mailOutline
   },

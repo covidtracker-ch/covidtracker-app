@@ -13,7 +13,7 @@ import * as Ion from '@ionic/react';
 
 const Page = props => (
   <Ion.IonPage>
-    <Ion.IonHeader style={{backgroundColor: '#e53e3e'}}>
+    <Ion.IonHeader style={{backgroundColor: '#f74141'}}>
 
       <Ion.IonToolbar color="primary">
         <Ion.IonButtons slot="start">
@@ -32,7 +32,7 @@ const Page = props => (
 	        </Ion.IonToolbar>
 	      </Ion.IonHeader>
     	)}
-      <div style={{padding: props.padding && 13}}>
+      <div style={{padding: props.padding && 13, ...props.style}}>
       	{props.children}
       </div>
     </Ion.IonContent>

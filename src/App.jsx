@@ -27,13 +27,17 @@ import './theme/style.css';
 
 import Questionnaire from './pages/Questionnaire';
 import About from './pages/About';
+import registerNotifications from './registerNotifications';
 
+export default class extends React.Component {
 
+  componentDidMount() {
+    registerNotifications();
+  }
 
-const App = () => {
-
-  return (
-    <IonApp>
+  render() {
+    return (
+      <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
           <Menu />
@@ -45,7 +49,7 @@ const App = () => {
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>
-  );
-};
 
-export default App;
+    )
+  }
+}
