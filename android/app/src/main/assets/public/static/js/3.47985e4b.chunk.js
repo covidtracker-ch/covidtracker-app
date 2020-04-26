@@ -1,0 +1,2 @@
+(this["webpackJsonpct-app-ionic"]=this["webpackJsonpct-app-ionic"]||[]).push([[3],{177:function(n,t,i){"use strict";i.r(t),i.d(t,"startStatusTap",(function(){return e}));var o=i(18),e=function(){var n=window;n.addEventListener("statusTap",(function(){Object(o.h)((function(){var t=n.innerWidth,i=n.innerHeight,e=document.elementFromPoint(t/2,i/2);if(e){var c=e.closest("ion-content");c&&c.componentOnReady().then((function(){Object(o.n)((function(){return c.scrollToTop(300)}))}))}}))}))}}}]);
+//# sourceMappingURL=3.47985e4b.chunk.js.map
