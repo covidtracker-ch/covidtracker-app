@@ -1,8 +1,0 @@
-{
-  "appId": "io.ionic.starter",
-  "appName": "ct-app-ionic",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "build",
-  "cordova": {}
-}
