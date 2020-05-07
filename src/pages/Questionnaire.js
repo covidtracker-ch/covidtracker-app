@@ -22,7 +22,7 @@ function Questionnaire() {
   const lang = getLanguage();
 
   const cleanPath = lang ?? "";
-  const p = (cleanPath === "de") ? src : src+cleanPath+"/"+path;
+  const p = (cleanPath === "de") ? src : src+cleanPath+"/"+(path || "");
   console.log(cleanPath);
   console.log(p);
 
