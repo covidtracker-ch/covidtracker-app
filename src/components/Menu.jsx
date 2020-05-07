@@ -12,7 +12,7 @@ import {
 
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { mailOutline, informationOutline } from 'ionicons/icons';
+import { mailOutline, cogOutline, informationOutline } from 'ionicons/icons';
 import './Menu.css';
 
 const appPages = [
@@ -20,6 +20,11 @@ const appPages = [
     title: 'covidtracker.ch',
     url: '/',
     iosIcon: mailOutline
+  },
+  {
+    title: 'Einstellungen',
+    url: '/settings',
+    iosIcon: cogOutline
   },
   {
     title: 'Über uns',
@@ -30,14 +35,21 @@ const appPages = [
 
 const Menu = () => {
   const location = useLocation();
+  /*const getLanguage = () => {
+    return localStorage.getItem("language") || "";
+  }
+  const language = getLanguage();*/
 
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Covid Tracking Schweiz</IonListHeader>
-          <IonNote> - </IonNote>
+          <IonListHeader>Covid Tracker Schweiz</IonListHeader>
+          <IonNote> </IonNote>
           {appPages.map((appPage, index) => {
+            /*if(appPage.url === "/" && language !== ""){
+              appPage.url = `/p/${language}/`;
+            }*/
             return (
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>

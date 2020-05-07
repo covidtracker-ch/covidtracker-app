@@ -28,6 +28,7 @@ import './theme/style.css';
 
 import Questionnaire from './pages/Questionnaire';
 import About from './pages/About';
+import Settings from './pages/Settings';
 import registerNotifications from './registerNotifications';
 
 export default class extends React.Component {
@@ -43,8 +44,9 @@ export default class extends React.Component {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-
+          <Route path="/settings" component={Settings} exact />
           <Route path="/about" component={About} exact />
+          <Route path="/p/:path" component={Questionnaire} exact />
           <Route path="/" component={Questionnaire} exact />
           </IonRouterOutlet>
         </IonSplitPane>
