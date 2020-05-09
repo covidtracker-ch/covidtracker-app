@@ -4,6 +4,7 @@ import * as Ion from '@ionic/react';
 import Page from '../components/Page';
 import TimePickerWrapper from 'react-times';
 import { IonToggle, IonItem, IonLabel } from '@ionic/react';
+import registerNotifications from '../registerNotifications';
 
 // or you can use classic theme
 import 'react-times/css/classic/default.css';
@@ -37,8 +38,8 @@ export default class extends React.Component {
     render() {
       const language = this.getLanguage();
       return (
-        <Page title="Über uns" menu large padding >
-          <p>Sprachauswahl:</p>
+        <Page title="Einstellungen/Settings" menu large padding >
+          <p>Sprachauswahl/language:</p>
           <ul>
             <li>
               <a onClick={(e)=>this.setLanguage(e, "de")} style={language === "de" ? {color: "white", background: "red"} : {}} href="/#">German</a>
@@ -53,18 +54,26 @@ export default class extends React.Component {
               <a onClick={(e)=>this.setLanguage(e, "en")} style={language === "en" ? {color: "white", background: "red"} : {}} href="/#">English</a>
             </li>
           </ul>  
-          <p>Benachrichtigungen einschalten:</p>
+          <p>Benachrichtigungen/notifications:</p>
           <div style={{width: "200px", margin: "20px"}}>
             <IonToggle checked={this.state.allowNotifications} onIonChange={
               e => {
                 this.setState({allowNotifications: e.detail.checked});
                 localStorage.setItem("allowNotifications", e.detail.checked);
+                if(e.detail.checked === false){
+                  registerNotifications(-1, -1);
+                  }
+                else{
+                  const hour = this.state.notificationTime.split(":")[0];
+                  const minutes = this.state.notificationTime.split(":")[1];
+                  registerNotifications(hour, minutes);
                 }
+              }
               } />
           </div>
           {this.state.allowNotifications ? 
             <div>
-              <p>Jeden Tag:</p>
+              <p>Jeden Tag/every day:</p>
               <div style={{width: "200px"}}>
                 <TimePickerWrapper 
                   theme="classic" 
@@ -74,6 +83,7 @@ export default class extends React.Component {
                     console.log(options);
                     this.setState({notificationTime: `${hour}:${minute}`});
                     localStorage.setItem("notificationTime", `${hour}:${minute}`);
+                    registerNotifications(hour, minute);
                     }
                   }
                 />   

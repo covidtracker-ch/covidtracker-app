@@ -34,25 +34,41 @@ import registerNotifications from './registerNotifications';
 export default class extends React.Component {
 
   componentDidMount() {
-    registerNotifications();
+    const notificationTime = this.getNotificationTime();
+    this.hour = notificationTime.split(":")[0];
+    this.minutes = notificationTime.split(":")[1];
+    this.hasRegistered = false;
+  }
+
+  getNotificationTime = () => {
+    return localStorage.getItem("notificationTime") || "17:00";
+  }
+
+  register(){
+    if(this.hasRegistered == false){
+      this.hasRegistered = true;
+      console.log("registered notification");
+      registerNotifications(this.hour, this.minutes);
+    }
   }
 
   render() {
     return (
-      <IonApp>
-      <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu />
-          <IonRouterOutlet id="main">
-          <Route path="/settings" component={Settings} exact />
-          <Route path="/about" component={About} exact />
-          <Route path="/p/:path" component={Questionnaire} exact />
-          <Route path="/" component={Questionnaire} exact />
-          </IonRouterOutlet>
-        </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
-
+      <div onClick={()=>this.register()}>
+        <IonApp>
+        <IonReactRouter>
+          <IonSplitPane contentId="main">
+            <Menu />
+            <IonRouterOutlet id="main">
+            <Route path="/settings" component={Settings} exact />
+            <Route path="/about" component={About} exact />
+            <Route path="/p/:path" component={Questionnaire} exact />
+            <Route path="/" component={Questionnaire} exact />
+            </IonRouterOutlet>
+          </IonSplitPane>
+        </IonReactRouter>
+      </IonApp>
+    </div>
     )
   }
 }

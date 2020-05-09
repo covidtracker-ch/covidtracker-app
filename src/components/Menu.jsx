@@ -17,17 +17,17 @@ import './Menu.css';
 
 const appPages = [
   {
-    title: 'covidtracker.ch',
+    title: 'Umfrage/Survey',
     url: '/',
     iosIcon: mailOutline
   },
   {
-    title: 'Einstellungen',
+    title: 'Einstellungen/Settings',
     url: '/settings',
     iosIcon: cogOutline
   },
   {
-    title: 'Über uns',
+    title: 'Über uns/About us',
     url: '/about',
     iosIcon: informationOutline
   }
@@ -44,7 +44,7 @@ const Menu = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Covid Tracker Schweiz</IonListHeader>
+          <IonListHeader>Covidtracker Schweiz/Switzerland</IonListHeader>
           <IonNote> </IonNote>
           {appPages.map((appPage, index) => {
             /*if(appPage.url === "/" && language !== ""){
