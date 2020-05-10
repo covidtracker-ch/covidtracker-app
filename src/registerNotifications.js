@@ -21,21 +21,31 @@ async function registerNotifications(hour, minute) {
 	});*/
 	if(hour !== -1 && minute !== -1){
 		const intH = parseInt(hour);
-		const intM = parseInt(minute);
+		const intM = parseInt(minute); //int and string both don't work
 		console.log(intH);
 		console.log(intM);
+		const year = new Date().getFullYear();
+		const curr_month = new Date().getMonth(); //0 indexed
+		const curr_date = new Date().getDate(); //1 indexed
+		const months = [...Array(12).keys()].filter((month)=>month>=curr_month);
+		const days = [...Array(31).keys()].filter((day)=>day>=curr_date);
+		const notifications = months.map((month) =>
+			{
+				return days.map((day) => {
+					const date = new Date(year, month, day, hour, minute);
+					console.log(year, month, day, hour, minute);
+					console.log(date);
+					return {
+						title: "Reminder: Help us track the disease",
+						body: `Fill out the survey - ${hour}:${minute}`,
+						id: 1, 
+						schedule: { at: date }
+					}
+				})
+			});
+		console.log(notifications.flat());
 		const notifs = await LocalNotifications.schedule({
-			notifications: [
-				{
-					title: "Reminder: Help us track the disease",
-					body: `Fill out the survey ${hour}:${minute}`,
-					id: 1, 
-					trigger: { every: { hour: intH, minute: intM } }
-					// {at: new Date(new Date().getTime() + 3600)},
-					// { every: { hour: intH, minute: intM } },
-					// progressBar: { value: 20 }
-				}
-			]
+			notifications: notifications.flat()
 		});
 		console.log('scheduled notifications', notifs);
 	}

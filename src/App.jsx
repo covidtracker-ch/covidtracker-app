@@ -45,7 +45,8 @@ export default class extends React.Component {
   }
 
   register(){
-    if(this.hasRegistered == false){
+    const allowNotifications = localStorage.getItem("allowNotifications");
+    if(this.hasRegistered === false && allowNotifications !== false){
       this.hasRegistered = true;
       console.log("registered notification");
       registerNotifications(this.hour, this.minutes);
