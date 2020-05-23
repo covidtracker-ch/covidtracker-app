@@ -38,7 +38,7 @@ export default class extends React.Component {
     render() {
       const language = this.getLanguage();
       return (
-        <Page title="Einstellungen/Settings" menu large padding >
+        <Page title="Einstellungen/Settings" menu padding >
           <p>Sprachauswahl/language:</p>
           <ul>
             <li>
