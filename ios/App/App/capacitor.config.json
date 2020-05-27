@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "ct-app-ionic",
+  "appId": "com.bmi.covidtracker",
+  "appName": "Covid-19 Tracker",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
