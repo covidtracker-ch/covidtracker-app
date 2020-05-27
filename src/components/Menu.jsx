@@ -14,37 +14,18 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { mailOutline, cogOutline, informationOutline } from 'ionicons/icons';
 import './Menu.css';
+import translations from '../translations';
 
-const int = {
-  survey: {
-    de: 'Umfrage',
-    en: 'Survey',
-    it: 'Inchiesta',
-    fr: 'Sondage '  
-  },
-  settings: {
-    de: 'Einstellungen',
-    en: 'Settings',
-    it: 'impostazioni',
-    fr: 'Paramètres'
-  }
-}
 
-function getLanguageCode() {
-  const s = localStorage.getItem('language');
-  if(!s || s == '' || s == 'de') return 'de';
-  return s;
-}
-console.log(int.survey[getLanguageCode()])
 
 const appPages = [
   {
-    title: int.survey[getLanguageCode()],
+    title: translations('survey'),
     url: '/',
     iosIcon: mailOutline
   },
   {
-    title: int.settings[getLanguageCode()],
+    title: translations('settings'),
     url: '/settings',
     iosIcon: cogOutline
   },

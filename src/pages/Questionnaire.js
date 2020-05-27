@@ -9,6 +9,7 @@ import {
   Link,
   useParams
 } from "react-router-dom";
+import translations from '../translations';
 
 function Questionnaire() {
   let { path } = useParams();
@@ -23,11 +24,11 @@ function Questionnaire() {
 
   const cleanPath = lang ?? "";
   const p = (cleanPath === "de") ? src : src+cleanPath+"/"+(path || "");
-  console.log(cleanPath);
-  console.log(p);
+  // console.log(cleanPath);
+  // console.log(p);
 
   return (
-    <Page title="" menu style={{overflow: 'hidden', position: 'relative', width: '100%', height: '100%'}}>
+    <Page title={translations('survey')} menu style={{overflow: 'hidden', position: 'relative', width: '100%', height: '100%'}}>
       <iframe 
         id="main_iframe" 
         src={p}></iframe>

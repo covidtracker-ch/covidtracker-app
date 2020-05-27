@@ -8,6 +8,10 @@ import registerNotifications from '../registerNotifications';
 
 // or you can use classic theme
 import 'react-times/css/classic/default.css';
+import translations from '../translations';
+
+console.log(translations);
+console.log(translations('survey'))
 
 export default class extends React.Component {
     constructor(){
@@ -38,7 +42,7 @@ export default class extends React.Component {
     render() {
       const language = this.getLanguage();
       return (
-        <Page title="Einstellungen/Settings" menu padding >
+        <Page title={translations('settings')} menu padding >
           <p>Select Language</p>
           <ul>
             <li>
@@ -80,7 +84,7 @@ export default class extends React.Component {
                   time={this.state.notificationTime}
                   onTimeChange={(options)=>{ // you can get hour, minute and meridiem here
                     const { hour, minute, meridiem } = options; 
-                    console.log(options);
+                    // console.log(options);
                     this.setState({notificationTime: `${hour}:${minute}`});
                     localStorage.setItem("notificationTime", `${hour}:${minute}`);
                     registerNotifications(hour, minute);

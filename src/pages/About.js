@@ -69,7 +69,7 @@ export default class extends React.Component {
         )
       }
       return (
-        <Page title="Über uns/about us" menu padding >
+        <Page title="About" menu padding >
           {lang_div}
         </Page>
       );
