@@ -3,7 +3,7 @@ import React from 'react';
 import * as Ion from '@ionic/react';
 import Page from '../components/Page';
 import TimePickerWrapper from 'react-times';
-import { IonToggle, IonItem, IonLabel } from '@ionic/react';
+import { IonToggle, IonItem, IonLabel, IonButton } from '@ionic/react';
 import registerNotifications from '../registerNotifications';
 
 // or you can use classic theme
@@ -39,7 +39,7 @@ export default class extends React.Component {
       const language = this.getLanguage();
       return (
         <Page title="Einstellungen/Settings" menu padding >
-          <p>Sprachauswahl/language:</p>
+          <p>Select Language</p>
           <ul>
             <li>
               <a onClick={(e)=>this.setLanguage(e, "de")} style={language === "de" ? {color: "white", background: "red"} : {}} href="/#">German</a>
@@ -54,7 +54,7 @@ export default class extends React.Component {
               <a onClick={(e)=>this.setLanguage(e, "en")} style={language === "en" ? {color: "white", background: "red"} : {}} href="/#">English</a>
             </li>
           </ul>  
-          <p>Benachrichtigungen/notifications:</p>
+          <p>Enable notifications</p>
           <div style={{width: "200px", margin: "20px"}}>
             <IonToggle checked={this.state.allowNotifications} onIonChange={
               e => {
@@ -73,7 +73,7 @@ export default class extends React.Component {
           </div>
           {this.state.allowNotifications ? 
             <div>
-              <p>Jeden Tag/every day:</p>
+              <p>Every day at</p>
               <div style={{width: "200px"}}>
                 <TimePickerWrapper 
                   theme="classic" 
@@ -90,6 +90,10 @@ export default class extends React.Component {
               </div>
             </div>
             : ""}
+            <br />
+            <IonButton onClick={() => {
+              window.location.href = window.location.href
+            }}>Save settings</IonButton>
         </Page>
       );
     }

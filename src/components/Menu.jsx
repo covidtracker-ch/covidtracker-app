@@ -15,19 +15,41 @@ import { useLocation } from 'react-router-dom';
 import { mailOutline, cogOutline, informationOutline } from 'ionicons/icons';
 import './Menu.css';
 
+const int = {
+  survey: {
+    de: 'Umfrage',
+    en: 'Survey',
+    it: 'Inchiesta',
+    fr: 'Sondage '  
+  },
+  settings: {
+    de: 'Einstellungen',
+    en: 'Settings',
+    it: 'impostazioni',
+    fr: 'Paramètres'
+  }
+}
+
+function getLanguageCode() {
+  const s = localStorage.getItem('language');
+  if(!s || s == '' || s == 'de') return 'de';
+  return s;
+}
+console.log(int.survey[getLanguageCode()])
+
 const appPages = [
   {
-    title: 'Umfrage/Survey',
+    title: int.survey[getLanguageCode()],
     url: '/',
     iosIcon: mailOutline
   },
   {
-    title: 'Einstellungen/Settings',
+    title: int.settings[getLanguageCode()],
     url: '/settings',
     iosIcon: cogOutline
   },
   {
-    title: 'Über uns/About us',
+    title: 'About',
     url: '/about',
     iosIcon: informationOutline
   }
@@ -44,7 +66,7 @@ const Menu = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Covidtracker Schweiz/Switzerland</IonListHeader>
+          <IonListHeader>Covid-19 Tracking</IonListHeader>
           <IonNote> </IonNote>
           {appPages.map((appPage, index) => {
             /*if(appPage.url === "/" && language !== ""){
